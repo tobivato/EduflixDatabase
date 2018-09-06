@@ -8,18 +8,7 @@ const movieRoutes = require('./api/routes/movies');
 
 
 
-mongoose.connect("mongodb+srv://tobivato:Pinion58@eduflixdatabase-zyo9x.mongodb.net/test?retryWrites=true", {
-  auth: {
-    user:'tobivato',
-    password:'Pinion58'
-  },
-  useNewUrlParser:true
-}, function(err, client) {
-  if (err) {
-    return console.log(err);
-  }
-  console.log('connect!!!');
-});
+mongoose.connect(process.env.MONGODB_URI);
 
 
 app.use(morgan('dev'));
