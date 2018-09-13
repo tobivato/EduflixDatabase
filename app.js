@@ -1,13 +1,19 @@
+////import express library
 const express = require('express');
+//invoke express methods
 const app = express();
+//import morgan library for formated error logs
 const morgan = require('morgan');
+//import bodyparser library for json docs
 const bodyParser = require('body-parser');
+//import mongoose library
 const mongoose = require('mongoose');
+//import movie route from movies.js
 const movieRoutes = require('./api/routes/movies');
 
 
 
-
+//connection to the database on heroku mlab using process environment variable
 mongoose.connect(process.env.MONGODB_URI);
 
 

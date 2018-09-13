@@ -56,9 +56,15 @@ router.get('/:movieId', (req, res, next) => {
 router.post('/', (req, res, next) => {
     const movie = new Movie({
       _id: new mongoose.Types.ObjectId(),
+      imagePath: req.body.imagePath,
+      description: req.body.description,
       title: req.body.title,
       url: req.body.url,
-      message: req.body.message
+      message:{
+        timeStart: req.body.message.timeStart ,
+        timeEnd: req.body.message.timeEnd,
+        text: req.body.message.text    
+      }
 
     });
       movie.save()
